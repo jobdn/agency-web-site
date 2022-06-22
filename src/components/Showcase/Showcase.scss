@@ -1,0 +1,24 @@
+@import "../../styles/variables.scss";
+.showcase {
+  color: #fff;
+  background-color: $primary-bg;
+  text-align: center;
+  height: 336px;
+  &__title {
+    font-size: 56px;
+    line-height: 64px;
+    padding-top: 90px;
+    padding-bottom: 34px;
+    @media screen and (max-width: 1040px) {
+      padding-top: 75px;
+      padding-bottom: 22px;
+    }
+  }
+  &__subtitle {
+    margin: 0 auto;
+    padding: 0 5px;
+    line-height: 32px;
+    max-width: 570px;
+    color: #ffffffa3;
+  }
+}

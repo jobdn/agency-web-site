@@ -1,8 +1,8 @@
-$primary: #28293e;
+@import "../../styles/variables.scss";
 
 .header {
   height: 64px;
-  background: $primary;
+  background: $primary-bg;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -37,7 +37,7 @@ $primary: #28293e;
   &__btn {
     text-transform: uppercase;
     color: #fff;
-    background: $primary;
+    background: $primary-bg;
     width: 138px;
     padding: 10px 0;
 
