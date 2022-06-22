@@ -13,7 +13,7 @@ import product9 from "../../../assets/product-9.png";
 export interface IProduct {
   thumbnail: string;
   category: AvailableCategories;
-  name: string;
+  label: string;
   isSelected: boolean;
 }
 
@@ -28,55 +28,55 @@ const initialState: ProducsState = {
     {
       thumbnail: product1,
       category: "Design",
-      name: "SOFA",
+      label: "SOFA",
       isSelected: false,
     },
     {
       thumbnail: product2,
       category: "Branding",
-      name: "KeyBoard",
+      label: "KeyBoard",
       isSelected: false,
     },
     {
       thumbnail: product3,
       category: "Illustration",
-      name: "Work Media",
+      label: "Work Media",
       isSelected: false,
     },
     {
       thumbnail: product4,
       category: "Motion",
-      name: "DDDone",
+      label: "DDDone",
       isSelected: false,
     },
     {
       thumbnail: product5,
       category: "Design",
-      name: "Abstract",
+      label: "Abstract",
       isSelected: false,
     },
     {
       thumbnail: product6,
       category: "Branding",
-      name: "HandP",
+      label: "HandP",
       isSelected: false,
     },
     {
       thumbnail: product7,
       category: "Motion",
-      name: "Architech",
+      label: "Architech",
       isSelected: false,
     },
     {
       thumbnail: product8,
       category: "Design",
-      name: "CalC",
+      label: "CalC",
       isSelected: false,
     },
     {
       thumbnail: product9,
       category: "Branding",
-      name: "Sport",
+      label: "Sport",
       isSelected: false,
     },
   ],
