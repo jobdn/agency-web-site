@@ -11,16 +11,16 @@ export const Header: React.FC = () => {
       </div>
       <nav>
         <ul>
-          <li>
+          <li key={1}>
             <a href="">About</a>
           </li>
-          <li>
+          <li key={2}>
             <a href="">Services</a>
           </li>
-          <li>
+          <li key={3}>
             <a href="">Pricing</a>
           </li>
-          <li>
+          <li key={4}>
             <a href="">Blog</a>
           </li>
         </ul>

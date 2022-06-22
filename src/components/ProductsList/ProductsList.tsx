@@ -8,17 +8,19 @@ const StyledProductsList = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  max-width: 1600px;
+  max-width: 1650px;
   margin: 0 auto;
 `;
 
 export const ProductsList: React.FC = () => {
   const { products } = useTypedSelector((state) => state.products);
   return (
-    <StyledProductsList>
-      {products.map((product) => (
-        <Card {...product} />
-      ))}
-    </StyledProductsList>
+    <>
+      <StyledProductsList>
+        {products.map((product) => (
+          <Card {...product} key={product.id} />
+        ))}
+      </StyledProductsList>
+    </>
   );
 };

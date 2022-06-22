@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import product1 from "../../../assets/product-1.png";
 import product2 from "../../../assets/product-2.png";
@@ -11,82 +11,116 @@ import product8 from "../../../assets/product-8.png";
 import product9 from "../../../assets/product-9.png";
 
 export interface IProduct {
+  id: number;
   thumbnail: string;
   category: AvailableCategories;
   label: string;
   isSelected: boolean;
 }
+export const templateProducts: IProduct[] = [
+  {
+    id: 0,
+    thumbnail: product1,
+    category: "Design",
+    label: "SOFA",
+    isSelected: false,
+  },
+
+  {
+    id: 1,
+    thumbnail: product2,
+    category: "Branding",
+    label: "KeyBoard",
+    isSelected: false,
+  },
+  {
+    id: 2,
+    thumbnail: product3,
+    category: "Illustration",
+    label: "Work Media",
+    isSelected: false,
+  },
+  {
+    id: 3,
+    thumbnail: product4,
+    category: "Motion",
+    label: "DDDone",
+    isSelected: false,
+  },
+  {
+    id: 4,
+    thumbnail: product5,
+    category: "Design",
+    label: "Abstract",
+    isSelected: false,
+  },
+  {
+    id: 5,
+    thumbnail: product6,
+    category: "Branding",
+    label: "HandP",
+    isSelected: false,
+  },
+  {
+    id: 6,
+    thumbnail: product7,
+    category: "Motion",
+    label: "Architech",
+    isSelected: false,
+  },
+  {
+    id: 7,
+    thumbnail: product8,
+    category: "Design",
+    label: "CalC",
+    isSelected: false,
+  },
+  {
+    id: 8,
+    thumbnail: product9,
+    category: "Branding",
+    label: "Sport",
+    isSelected: false,
+  },
+];
 
 interface ProducsState {
   products: IProduct[];
+  isLoading: boolean;
+  offset: number;
 }
 
 type AvailableCategories = "Design" | "Branding" | "Illustration" | "Motion";
 
 const initialState: ProducsState = {
-  products: [
-    {
-      thumbnail: product1,
-      category: "Design",
-      label: "SOFA",
-      isSelected: false,
-    },
-    {
-      thumbnail: product2,
-      category: "Branding",
-      label: "KeyBoard",
-      isSelected: false,
-    },
-    {
-      thumbnail: product3,
-      category: "Illustration",
-      label: "Work Media",
-      isSelected: false,
-    },
-    {
-      thumbnail: product4,
-      category: "Motion",
-      label: "DDDone",
-      isSelected: false,
-    },
-    {
-      thumbnail: product5,
-      category: "Design",
-      label: "Abstract",
-      isSelected: false,
-    },
-    {
-      thumbnail: product6,
-      category: "Branding",
-      label: "HandP",
-      isSelected: false,
-    },
-    {
-      thumbnail: product7,
-      category: "Motion",
-      label: "Architech",
-      isSelected: false,
-    },
-    {
-      thumbnail: product8,
-      category: "Design",
-      label: "CalC",
-      isSelected: false,
-    },
-    {
-      thumbnail: product9,
-      category: "Branding",
-      label: "Sport",
-      isSelected: false,
-    },
-  ],
+  products: templateProducts,
+  isLoading: false,
+  offset: 9,
 };
 
 const productsSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {},
+  reducers: {
+    setIsLoading(state: ProducsState, action: PayloadAction<boolean>) {
+      state.isLoading = action.payload;
+    },
+
+    fetchProductsSuccess(
+      state: ProducsState,
+      action: PayloadAction<IProduct[]>
+    ) {
+      console.log("action.payload: ", action.payload);
+      state.products.push(...action.payload);
+    },
+
+    selectProduct(state: ProducsState, action: PayloadAction<number>) {
+      state.products[action.payload].isSelected =
+        !state.products[action.payload].isSelected;
+    },
+  },
 });
 
-export const {} = productsSlice.actions;
+export const { setIsLoading, fetchProductsSuccess, selectProduct } =
+  productsSlice.actions;
 export default productsSlice.reducer;
