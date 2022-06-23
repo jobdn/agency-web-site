@@ -13,6 +13,8 @@ export const FilterMenu: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const handleMenuClick = (item: AvailableFilterValues) => {
+    if (item === activeFilterItem) return;
+
     dispatch(selectFilterItem(item));
   };
 
