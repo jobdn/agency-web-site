@@ -7,13 +7,11 @@ import { useAppDispatch, useTypedSelector } from "../../store";
 import { selectFilterItem } from "../../store/reducers/filter";
 
 export const FilterMenu: React.FC = () => {
-  const { filterItems, activeFilterItem } = useTypedSelector(
-    (state) => state.filter
-  );
+  const { filterItems, filter } = useTypedSelector((state) => state.filter);
   const dispatch = useAppDispatch();
 
   const handleMenuClick = (item: AvailableFilterValues) => {
-    if (item === activeFilterItem) return;
+    if (item === filter) return;
 
     dispatch(selectFilterItem(item));
   };
@@ -23,7 +21,7 @@ export const FilterMenu: React.FC = () => {
       <ul>
         {filterItems.map((item) => (
           <li
-            className={item.filterValue === activeFilterItem ? "active" : ""}
+            className={item.filterValue === filter ? "active" : ""}
             key={item.id}
             onClick={() => handleMenuClick(item.filterValue)}
           >

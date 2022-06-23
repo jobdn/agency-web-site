@@ -8,9 +8,7 @@ import arrow from "../../assets/arrow.png";
 import "./FilterDropdown.scss";
 
 export const FilterDropdown: React.FC = () => {
-  const { filterItems, activeFilterItem } = useTypedSelector(
-    (state) => state.filter
-  );
+  const { filterItems, filter } = useTypedSelector((state) => state.filter);
   const dispatch = useAppDispatch();
 
   const handleSelect = (option: string) => {
@@ -24,7 +22,7 @@ export const FilterDropdown: React.FC = () => {
       onChange={handleSelect}
       dropdownClassName="dropdown"
       suffixIcon={<img src={arrow} alt="row" />}
-      value={activeFilterItem}
+      value={filter}
     >
       {filterItems.map((item) => (
         <Select.Option key={item.id} value={item.filterValue}>

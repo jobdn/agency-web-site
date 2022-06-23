@@ -36,7 +36,7 @@ const filterButtoms: IFilterItem[] = [
 
 const initialState: IFilterState = {
   filterItems: filterButtoms,
-  activeFilterItem: "",
+  filter: "",
 };
 
 export const filterSlice = createSlice({
@@ -47,7 +47,7 @@ export const filterSlice = createSlice({
       state: IFilterState,
       action: PayloadAction<AvailableFilterValues>
     ) {
-      state.activeFilterItem = action.payload;
+      state.filter = action.payload;
     },
   },
 });
