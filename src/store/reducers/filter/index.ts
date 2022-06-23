@@ -32,7 +32,7 @@ const filterButtoms: IFilterItem[] = [
 
 interface IFilterState {
   filterItems: IFilterItem[];
-  activeFilterItem: string;
+  activeFilterItem: AvailableFilterValues;
 }
 
 const initialState: IFilterState = {

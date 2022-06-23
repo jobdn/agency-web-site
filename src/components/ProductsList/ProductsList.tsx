@@ -11,7 +11,6 @@ const StyledProductsList = styled.div`
   max-width: 1650px;
   margin: 0 auto;
 `;
-
 export const ProductsList: React.FC = () => {
   const { products } = useTypedSelector((state) => state.products);
   const { activeFilterItem } = useTypedSelector((state) => state.filter);
