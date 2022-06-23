@@ -1,10 +1,10 @@
 import React from "react";
 
 import { AvailableFilterValues } from "../../models/IFilterItem";
-
-import "./FilterMenu.scss";
 import { useAppDispatch, useTypedSelector } from "../../store";
 import { selectFilterItem } from "../../store/reducers/filter";
+
+import "./FilterMenu.scss";
 
 export const FilterMenu: React.FC = () => {
   const { filterItems, filter } = useTypedSelector((state) => state.filter);

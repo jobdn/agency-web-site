@@ -1,10 +1,10 @@
 import { Select } from "antd";
+import arrow from "../../assets/arrow.png";
 
 import { useAppDispatch, useTypedSelector } from "../../store";
 import { selectFilterItem } from "../../store/reducers/filter";
 import { AvailableFilterValues } from "../../models/IFilterItem";
 
-import arrow from "../../assets/arrow.png";
 import "./FilterDropdown.scss";
 
 export const FilterDropdown: React.FC = () => {

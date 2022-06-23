@@ -4,9 +4,9 @@ import { selectProduct } from "../../store/reducers/products";
 import { selectFilterItem } from "../../store/reducers/filter";
 
 import { IProduct } from "../../models/IProduct";
+import { AvailableFilterValues } from "../../models/IFilterItem";
 
 import "./Card.scss";
-import { AvailableFilterValues } from "../../models/IFilterItem";
 
 export const Card: React.FC<IProduct> = React.memo((props) => {
   const dispatch = useAppDispatch();
