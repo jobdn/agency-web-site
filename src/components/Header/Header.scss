@@ -36,7 +36,6 @@
   }
   &__btn {
     text-transform: uppercase;
-    color: #fff;
     background: $primary-bg;
     width: 138px;
     padding: 10px 0;
@@ -45,6 +44,8 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    color: #fff !important;
+    text-align: center;
 
     border: 1px solid #ffffff4b;
     border-radius: 6px;

@@ -25,7 +25,14 @@ export const Header: React.FC = () => {
           </li>
         </ul>
       </nav>
-      <button className="header__btn">Contact</button>
+      <a
+        className="header__btn"
+        href="https://github.com/jobdn/agency-web-site"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Contact
+      </a>
     </header>
   );
 };
