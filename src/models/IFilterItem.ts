@@ -1,4 +1,4 @@
-export interface FilterItem {
+export interface IFilterItem {
   id: number;
   text: string;
   isActive: boolean;

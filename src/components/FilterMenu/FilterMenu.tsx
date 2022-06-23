@@ -1,16 +1,16 @@
 import React from "react";
 
-import { FilterProps } from "../../models/FilterProps";
-import { FilterItem } from "../../models/FilterItem";
+import { IFilterProps } from "../../models/IFilterProps";
+import { IFilterItem } from "../../models/IFilterItem";
 
 import "./FilterMenu.scss";
 
-const filterItems: FilterItem[] = [
+const filterItems: IFilterItem[] = [
   {
     id: 0,
     text: "Show all",
     isActive: true,
-    filterValue: "",
+    filterValue: "Show all",
   },
   {
     id: 1,
@@ -34,10 +34,10 @@ const filterItems: FilterItem[] = [
   },
 ];
 
-export const FilterMenu: React.FC<FilterProps> = ({ changeFilter }) => {
-  const [items, setItems] = React.useState<FilterItem[]>(filterItems);
+export const FilterMenu: React.FC<IFilterProps> = ({ changeFilter }) => {
+  const [items, setItems] = React.useState<IFilterItem[]>(filterItems);
 
-  const selectFilter = (selectedItem: FilterItem) => {
+  const selectItem = (selectedItem: IFilterItem) => {
     const newItems = items.map((item) => {
       return item.id === selectedItem.id
         ? { ...item, isActive: true }
@@ -56,7 +56,7 @@ export const FilterMenu: React.FC<FilterProps> = ({ changeFilter }) => {
           <li
             className={item.isActive ? "active" : ""}
             key={item.id}
-            onClick={() => selectFilter(item)}
+            onClick={() => selectItem(item)}
           >
             <span>{item.text}</span>
           </li>

@@ -1,7 +1,8 @@
-import { fetchProductsSuccess, IProduct, setIsLoading } from "./index";
+import { fetchProductsSuccess, setIsLoading } from "./index";
 import { AppDispatch } from "./../../index";
 
 import { templateProducts } from "./index";
+import { IProduct } from "../../../models/IProduct";
 
 export const fetchProducts =
   (page: number, offset: number) => async (dispatch: AppDispatch) => {
@@ -20,5 +21,5 @@ export const fetchProducts =
       dispatch(fetchProductsSuccess(newProducts));
 
       dispatch(setIsLoading(false));
-    }, 3000);
+    }, 1300);
   };

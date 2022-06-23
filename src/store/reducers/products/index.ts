@@ -10,13 +10,9 @@ import product7 from "../../../assets/product-7.png";
 import product8 from "../../../assets/product-8.png";
 import product9 from "../../../assets/product-9.png";
 
-export interface IProduct {
-  id: number;
-  thumbnail: string;
-  category: AvailableCategories;
-  label: string;
-  isSelected: boolean;
-}
+import { IProduct } from "../../../models/IProduct";
+import { IProducsState } from "../../../models/IProductsState";
+
 export const templateProducts: IProduct[] = [
   {
     id: 0,
@@ -84,20 +80,7 @@ export const templateProducts: IProduct[] = [
   },
 ];
 
-interface ProducsState {
-  products: IProduct[];
-  isLoading: boolean;
-  offset: number;
-  page: number;
-}
-
-export type AvailableCategories =
-  | "Design"
-  | "Branding"
-  | "Illustration"
-  | "Motion";
-
-const initialState: ProducsState = {
+const initialState: IProducsState = {
   products: templateProducts,
   isLoading: false,
   offset: 9,
@@ -108,19 +91,19 @@ const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
-    setIsLoading(state: ProducsState, action: PayloadAction<boolean>) {
+    setIsLoading(state: IProducsState, action: PayloadAction<boolean>) {
       state.isLoading = action.payload;
     },
 
     fetchProductsSuccess(
-      state: ProducsState,
+      state: IProducsState,
       action: PayloadAction<IProduct[]>
     ) {
       state.products.push(...action.payload);
       state.page++;
     },
 
-    selectProduct(state: ProducsState, action: PayloadAction<number>) {
+    selectProduct(state: IProducsState, action: PayloadAction<number>) {
       state.products[action.payload].isSelected =
         !state.products[action.payload].isSelected;
     },

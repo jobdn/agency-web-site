@@ -1,6 +1,8 @@
 import React from "react";
 import { useAppDispatch } from "../../store";
-import { IProduct, selectProduct } from "../../store/reducers/products";
+import { selectProduct } from "../../store/reducers/products";
+
+import { IProduct } from "../../models/IProduct";
 
 import "./Card.scss";
 
