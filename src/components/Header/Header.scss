@@ -40,11 +40,20 @@
     background: $primary-bg;
     width: 138px;
     padding: 10px 0;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
     border: 1px solid #ffffff4b;
     border-radius: 6px;
+    transition: 0.3s;
     @media screen and (max-width: 1040px) {
       display: none;
+    }
+    &:hover {
+      transform: scale(1.05);
     }
   }
 }

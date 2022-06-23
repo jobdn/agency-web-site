@@ -1,4 +1,7 @@
 .card {
+  &:first-child {
+    margin-top: 0;
+  }
   transition: 0.3s;
   position: relative;
   margin: 15px;

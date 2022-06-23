@@ -12,15 +12,21 @@ const StyledProductsList = styled.div`
   margin: 0 auto;
 `;
 
-export const ProductsList: React.FC = () => {
+interface ProductsListProps {
+  filter: string;
+}
+
+export const ProductsList: React.FC<ProductsListProps> = ({ filter }) => {
   const { products } = useTypedSelector((state) => state.products);
+  const filteredProducts = products.map((product) => {
+    return product.category.includes(filter) ? (
+      <Card {...product} key={product.id} />
+    ) : null;
+  });
+
   return (
     <>
-      <StyledProductsList>
-        {products.map((product) => (
-          <Card {...product} key={product.id} />
-        ))}
-      </StyledProductsList>
+      <StyledProductsList>{filteredProducts}</StyledProductsList>
     </>
   );
 };

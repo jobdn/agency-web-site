@@ -1,0 +1,12 @@
+.dropdown {
+  border: 1px solid #f3d1bf;
+  border-radius: 6px;
+  width: 329px;
+  margin: 32px 0 45px !important;
+  .ant-select-selector {
+    height: 48px !important;
+    display: flex;
+    align-items: center;
+    color: #391400a3;
+  }
+}

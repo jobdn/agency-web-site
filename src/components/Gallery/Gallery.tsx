@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { useTypedSelector } from "../../store";
-import { LoadMoreButton } from "../LoadMoreButton";
 
+import { useTypedSelector } from "../../store";
+
+import { FilterDropdown } from "../FilterDropdown";
+import { LoadMoreButton } from "../LoadMoreButton";
 import { ProductsList } from "../ProductsList";
 
 const StyledGallery = styled.section`
@@ -16,12 +18,16 @@ const StyledGallery = styled.section`
 `;
 
 export const Gallery: React.FC = () => {
-  const [isMobile, setIsMobile] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(true);
   const { isLoading } = useTypedSelector((state) => state.products);
+  const [filter, setFilter] = React.useState("");
+
+  // React.useEffect();
+
   return (
     <StyledGallery className="products">
-      {isMobile ? <FilterDropdown /> : <FilterMenu />}
-      <ProductsList />
+      {isMobile ? <FilterDropdown changeFilter={setFilter} /> : <FilterMenu />}
+      <ProductsList filter={filter} />
       {isLoading ? "Products is loading..." : null}
       <LoadMoreButton />
     </StyledGallery>
@@ -30,8 +36,4 @@ export const Gallery: React.FC = () => {
 
 export const FilterMenu: React.FC = () => {
   return <div>FilterMenu</div>;
-};
-
-export const FilterDropdown: React.FC = () => {
-  return <div>FilterDrop</div>;
 };

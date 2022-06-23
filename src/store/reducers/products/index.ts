@@ -88,14 +88,20 @@ interface ProducsState {
   products: IProduct[];
   isLoading: boolean;
   offset: number;
+  page: number;
 }
 
-type AvailableCategories = "Design" | "Branding" | "Illustration" | "Motion";
+export type AvailableCategories =
+  | "Design"
+  | "Branding"
+  | "Illustration"
+  | "Motion";
 
 const initialState: ProducsState = {
   products: templateProducts,
   isLoading: false,
   offset: 9,
+  page: 1,
 };
 
 const productsSlice = createSlice({
@@ -110,8 +116,8 @@ const productsSlice = createSlice({
       state: ProducsState,
       action: PayloadAction<IProduct[]>
     ) {
-      console.log("action.payload: ", action.payload);
       state.products.push(...action.payload);
+      state.page++;
     },
 
     selectProduct(state: ProducsState, action: PayloadAction<number>) {

@@ -28,10 +28,10 @@ const StyledBtn = styled.button`
 
 export const LoadMoreButton: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { products, offset } = useTypedSelector((state) => state.products);
+  const { page, offset } = useTypedSelector((state) => state.products);
 
   const handleLoad = () => {
-    dispatch(fetchProducts(offset, products.length));
+    dispatch(fetchProducts(page, offset));
   };
 
   return <StyledBtn onClick={handleLoad}>Load More</StyledBtn>;
