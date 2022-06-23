@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useTypedSelector } from "../../store";
 
 import { FilterDropdown } from "../FilterDropdown";
+import { FilterMenu } from "../FilterMenu";
 import { LoadMoreButton } from "../LoadMoreButton";
 import { ProductsList } from "../ProductsList";
 
@@ -38,14 +39,14 @@ export const Gallery: React.FC = () => {
 
   return (
     <StyledGallery className="products" ref={galleryRef}>
-      {isMobile ? <FilterDropdown changeFilter={setFilter} /> : <FilterMenu />}
+      {isMobile ? (
+        <FilterDropdown changeFilter={setFilter} />
+      ) : (
+        <FilterMenu changeFilter={setFilter} />
+      )}
       <ProductsList filter={filter} />
       {isLoading ? "Products is loading..." : null}
       <LoadMoreButton />
     </StyledGallery>
   );
-};
-
-export const FilterMenu: React.FC = () => {
-  return <div>FilterMenu</div>;
 };

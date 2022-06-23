@@ -3,9 +3,7 @@ import { Select } from "antd";
 import arrow from "../../assets/arrow.png";
 import "./FilterDropdown.scss";
 
-interface FilterProps {
-  changeFilter: React.Dispatch<React.SetStateAction<string>>;
-}
+import { FilterProps } from "../../models/FilterProps";
 
 export const FilterDropdown: React.FC<FilterProps> = ({ changeFilter }) => {
   const handleSelect = (option: string) => {
