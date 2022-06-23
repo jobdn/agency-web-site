@@ -1,13 +1,20 @@
 import { Select } from "antd";
 
+import { useAppDispatch, useTypedSelector } from "../../store";
+import { selectFilterItem } from "../../store/reducers/filter";
+import { AvailableFilterValues } from "../../models/IFilterItem";
+
 import arrow from "../../assets/arrow.png";
 import "./FilterDropdown.scss";
 
-import { IFilterProps } from "../../models/IFilterProps";
+export const FilterDropdown: React.FC = () => {
+  const { filterItems, activeFilterItem } = useTypedSelector(
+    (state) => state.filter
+  );
+  const dispatch = useAppDispatch();
 
-export const FilterDropdown: React.FC<IFilterProps> = ({ changeFilter }) => {
   const handleSelect = (option: string) => {
-    changeFilter(option);
+    dispatch(selectFilterItem(option as AvailableFilterValues));
   };
 
   return (
@@ -17,12 +24,13 @@ export const FilterDropdown: React.FC<IFilterProps> = ({ changeFilter }) => {
       onChange={handleSelect}
       dropdownClassName="dropdown"
       suffixIcon={<img src={arrow} alt="row" />}
+      value={activeFilterItem}
     >
-      <Select.Option value="">Show all</Select.Option>
-      <Select.Option value="Design">Design</Select.Option>
-      <Select.Option value="Branding">Branding</Select.Option>
-      <Select.Option value="Illustration">Illustration</Select.Option>
-      <Select.Option value="Motion">Motion</Select.Option>
+      {filterItems.map((item) => (
+        <Select.Option key={item.id} value={item.filterValue}>
+          {item.text}
+        </Select.Option>
+      ))}
     </Select>
   );
 };

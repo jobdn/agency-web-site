@@ -1,6 +1,12 @@
+export type AvailableFilterValues =
+  | ""
+  | "design"
+  | "branding"
+  | "illustration"
+  | "motion";
+
 export interface IFilterItem {
   id: number;
   text: string;
-  isActive: boolean;
-  filterValue?: string;
+  filterValue: AvailableFilterValues;
 }

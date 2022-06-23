@@ -12,14 +12,12 @@ const StyledProductsList = styled.div`
   margin: 0 auto;
 `;
 
-interface ProductsListProps {
-  filter: string;
-}
-
-export const ProductsList: React.FC<ProductsListProps> = ({ filter }) => {
+export const ProductsList: React.FC = () => {
   const { products } = useTypedSelector((state) => state.products);
+  const { activeFilterItem } = useTypedSelector((state) => state.filter);
+
   const filteredProducts = products.map((product) => {
-    return product.category.includes(filter) ? (
+    return product.category.toLowerCase().includes(activeFilterItem) ? (
       <Card {...product} key={product.id} />
     ) : null;
   });

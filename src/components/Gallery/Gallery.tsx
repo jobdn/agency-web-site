@@ -21,8 +21,6 @@ const StyledGallery = styled.section`
 export const Gallery: React.FC = () => {
   const [isMobile, setIsMobile] = React.useState(false);
   const { isLoading } = useTypedSelector((state) => state.products);
-  const [filter, setFilter] = React.useState("");
-  const galleryRef = React.useRef<HTMLElement>(null);
 
   React.useEffect(() => {
     const handleResize = () => {
@@ -38,13 +36,9 @@ export const Gallery: React.FC = () => {
   }, []);
 
   return (
-    <StyledGallery className="products" ref={galleryRef}>
-      {isMobile ? (
-        <FilterDropdown changeFilter={setFilter} />
-      ) : (
-        <FilterMenu changeFilter={setFilter} />
-      )}
-      <ProductsList filter={filter} />
+    <StyledGallery className="products">
+      {isMobile ? <FilterDropdown /> : <FilterMenu />}
+      <ProductsList />
       {isLoading ? "Products is loading..." : null}
       <LoadMoreButton />
     </StyledGallery>

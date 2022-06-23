@@ -45,6 +45,10 @@
     -ms-user-select: none;
     user-select: none;
     cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      transform: translateY(-3px);
+    }
   }
   &__label {
     -webkit-user-select: none;
