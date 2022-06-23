@@ -21,7 +21,6 @@ export const templateProducts: IProduct[] = [
     label: "SOFA",
     isSelected: false,
   },
-
   {
     id: 1,
     thumbnail: product2,

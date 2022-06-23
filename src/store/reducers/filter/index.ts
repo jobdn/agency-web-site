@@ -1,6 +1,10 @@
-import { AvailableFilterValues } from "./../../../models/IFilterItem";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IFilterItem } from "../../../models/IFilterItem";
+
+import {
+  IFilterItem,
+  AvailableFilterValues,
+} from "../../../models/IFilterItem";
+import { IFilterState } from "../../../models/IFilterState";
 
 const filterButtoms: IFilterItem[] = [
   {
@@ -29,11 +33,6 @@ const filterButtoms: IFilterItem[] = [
     filterValue: "motion",
   },
 ];
-
-interface IFilterState {
-  filterItems: IFilterItem[];
-  activeFilterItem: AvailableFilterValues;
-}
 
 const initialState: IFilterState = {
   filterItems: filterButtoms,
