@@ -2,6 +2,10 @@
   border: 1px solid #f3d1bf;
   border-radius: 6px;
   width: 329px;
+  transition: 0.3s;
+  @media screen and (max-width: 425px) {
+    width: 300px;
+  }
   margin: 32px 0 45px !important;
   .ant-select-selector {
     height: 48px !important;

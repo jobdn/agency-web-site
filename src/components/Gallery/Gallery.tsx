@@ -18,14 +18,26 @@ const StyledGallery = styled.section`
 `;
 
 export const Gallery: React.FC = () => {
-  const [isMobile, setIsMobile] = React.useState(true);
+  const [isMobile, setIsMobile] = React.useState(false);
   const { isLoading } = useTypedSelector((state) => state.products);
   const [filter, setFilter] = React.useState("");
+  const galleryRef = React.useRef<HTMLElement>(null);
 
-  // React.useEffect();
+  React.useEffect(() => {
+    const handleResize = () => {
+      if (document.documentElement.clientWidth < 1040) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
-    <StyledGallery className="products">
+    <StyledGallery className="products" ref={galleryRef}>
       {isMobile ? <FilterDropdown changeFilter={setFilter} /> : <FilterMenu />}
       <ProductsList filter={filter} />
       {isLoading ? "Products is loading..." : null}
